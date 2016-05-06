@@ -1,0 +1,15 @@
+#!/bin/sh
+
+while true
+do
+  read -r -e -d $'\n' -p $'\e[35m[igi]\e[0m git ' command
+  history -s "$command"
+
+  if [ "$command" == "exit" ]; then
+    exit
+  else
+    git $command
+  fi
+
+  echo ""
+done
